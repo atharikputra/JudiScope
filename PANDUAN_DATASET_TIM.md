@@ -1,6 +1,6 @@
 # Panduan dataset untuk eksperimen ANN, SVM, dan Bayesian
 
-Gunakan data, label, dan pembagian train/validation/test yang sama agar hasil tiga algoritma bisa dibandingkan. Eksperimen Bayesian sudah memakai pembagian di bawah; ANN dan SVM tinggal mengikuti manifest yang tersedia.
+Gunakan data, label, dan pembagian train/validation/test yang sama agar hasil tiga algoritma bisa dibandingkan. Notebook Bayesian membuat manifest pembagian; [04_ann.ipynb](04_ann.ipynb) dan [05_svm.ipynb](05_svm.ipynb) membaca manifest tersebut secara langsung. Hasil masing-masing tersedia di `outputs/bayesian/`, `outputs/ann/`, dan `outputs/svm/`.
 
 Sumber awal dataset, berdasarkan informasi anggota kelompok: **[Judi Online — Kaggle (`yaemico/judionline`)](https://www.kaggle.com/datasets/yaemico/judionline)**. Gunakan salinan lokal yang sama, bukan mengunduh versi lain lalu membuat split sendiri. Rincian atribusi dan hal yang belum terverifikasi dicatat di [dataset/README.md](dataset/README.md).
 
@@ -140,7 +140,7 @@ Jika assertion gagal, periksa versi file yang dibagikan. Jangan menghapus assert
 
 Gunakan `Pipeline` yang berisi TF-IDF dan classifier. Setiap kandidat belajar kosakata serta IDF hanya dari data latihan kandidat tersebut. Validation dan test cukup ditransformasi menggunakan TF-IDF yang sudah dipelajari. Saat refit, buat pipeline baru dan fit pada data development sesuai skenarionya.
 
-Grid fitur pada Bayesian:
+Grid fitur bersama Bayesian, ANN, dan SVM:
 
 | Pengaturan | Nilai |
 | --- | --- |
@@ -148,7 +148,7 @@ Grid fitur pada Bayesian:
 | Kandidat B | `analyzer="char_wb"`, `ngram_range=(3, 5)` |
 | Keduanya | `min_df=2`, `max_features=40000`, `sublinear_tf=True`, `lowercase=False` |
 
-Untuk perbandingan yang sejalan, ANN dan SVM dapat mencoba dua kandidat fitur tersebut dengan aturan seleksi validation yang sama. Parameter classifier menyesuaikan algoritmanya. Catat jumlah percobaan dan pengaturan terbaik; jangan menganggap satu algoritma unggul mutlak jika anggaran tuning berbeda.
+Ketiga notebook mencoba dua kandidat fitur tersebut dengan aturan seleksi validation yang sama. Parameter classifier menyesuaikan algoritmanya: Bayesian menguji `alpha`, ANN menguji jumlah unit tersembunyi, dan SVM menguji `C`. Catat jumlah kandidat dan pengaturan terbaik; jumlah kandidat bukan ukuran biaya komputasi yang setara antaralgoritma.
 
 ANN dan SVM tidak perlu memakai nilai `alpha` milik Naive Bayes. Untuk algoritma yang memiliki proses acak, set `random_state=42` jika tersedia. Jika ANN membutuhkan representasi yang lebih kecil atau konversi sparse ke dense, pertimbangkan kebutuhan memori, pelajari transformasi tambahan hanya dari train, dan dokumentasikan perbedaannya.
 
@@ -163,6 +163,8 @@ Untuk setiap skenario, simpan:
 - Waktu fit dan jumlah record latihan; bedakan waktu tuning dari waktu refit.
 - Prediksi setiap komentar test, disertai `source_row` dan label rujukannya.
 - Contoh false positive dan false negative untuk pembahasan.
+
+Keluaran notebook SVM mengikuti susunan Bayesian/ANN: `validation_results.csv`, `test_metrics.csv`, `test_predictions.csv`, `selected_model_errors.csv`, `selected_model_feature_weights.csv`, `experiment_summary.json`, serta grafik. Prediksi kedua skenario berada pada kolom terpisah dalam satu baris per komentar. SVM menyimpan margin pada kolom `decision_score_<skenario>`; angka ini bukan probabilitas seperti keluaran `predict_proba`.
 
 Laporkan metrik konsisten: nilai 0–1 atau persentase dengan format yang sama. Precision/recall/F1 kelas `1` dapat dihitung dengan `pos_label=1` dan `zero_division=0`; macro-F1 memakai `average="macro"`.
 

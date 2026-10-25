@@ -1,0 +1,269 @@
+{
+  "algorithm": "Support Vector Machine (LinearSVC)",
+  "author": "Aidan Ismail",
+  "selection_metric": "validation positive-class F1, then macro-F1",
+  "seed": 42,
+  "split_fractions": {
+    "train": 0.6,
+    "validation": 0.2,
+    "test": 0.2
+  },
+  "original_rows": 8934,
+  "synthetic_train_rows": 1066,
+  "split_counts": {
+    "train": 5360,
+    "validation": 1787,
+    "test": 1787
+  },
+  "selected_experiment_before_test": "original_only",
+  "best_validation_per_experiment": [
+    {
+      "experiment": "original_only",
+      "features": "char_wb_3_5",
+      "C": 10.0,
+      "fit_rows": 5360,
+      "fit_seconds": 0.3387164000014309,
+      "feature_count": 25306,
+      "n_iter": 200,
+      "converged": true,
+      "accuracy": 0.9904868494683827,
+      "precision_1": 0.9947643979057592,
+      "recall_1": 0.976027397260274,
+      "f1_1": 0.9853068280034573,
+      "macro_f1": 0.989136657692254
+    },
+    {
+      "experiment": "with_synthetic",
+      "features": "char_wb_3_5",
+      "C": 10.0,
+      "fit_rows": 6426,
+      "fit_seconds": 0.4370634999941103,
+      "feature_count": 25483,
+      "n_iter": 237,
+      "converged": true,
+      "accuracy": 0.9893676552881925,
+      "precision_1": 0.9896013864818024,
+      "recall_1": 0.9777397260273972,
+      "f1_1": 0.983634797588286,
+      "macro_f1": 0.9878803909201272
+    }
+  ],
+  "test_metrics": [
+    {
+      "experiment": "original_only",
+      "accuracy": 0.9876888640179071,
+      "precision_1": 0.9964664310954063,
+      "recall_1": 0.9657534246575342,
+      "f1_1": 0.9808695652173913,
+      "macro_f1": 0.9858968288133161,
+      "tn": 1201,
+      "fp": 2,
+      "fn": 20,
+      "tp": 564,
+      "fit_rows": 7147,
+      "test_rows": 1787,
+      "refit_seconds": 0.42147810000460595,
+      "test_predict_seconds": 0.08202869999513496
+    },
+    {
+      "experiment": "with_synthetic",
+      "accuracy": 0.987129266927812,
+      "precision_1": 0.9947089947089947,
+      "recall_1": 0.9657534246575342,
+      "f1_1": 0.9800173761946134,
+      "macro_f1": 0.9852625056788172,
+      "tn": 1200,
+      "fp": 3,
+      "fn": 20,
+      "tp": 564,
+      "fit_rows": 8213,
+      "test_rows": 1787,
+      "refit_seconds": 0.5495894999912707,
+      "test_predict_seconds": 0.07250130000466015
+    },
+    {
+      "experiment": "majority_baseline",
+      "accuracy": 0.6731952993844432,
+      "precision_1": 0.0,
+      "recall_1": 0.0,
+      "f1_1": 0.0,
+      "macro_f1": 0.4023411371237458,
+      "tn": 1203,
+      "fp": 0,
+      "fn": 584,
+      "tp": 0,
+      "fit_rows": 7147,
+      "test_rows": 1787,
+      "refit_seconds": null,
+      "test_predict_seconds": null
+    }
+  ],
+  "classification_reports": {
+    "original_only": {
+      "0: nonjudi (pemetaan kerja)": {
+        "precision": 0.9836199836199836,
+        "recall": 0.99833748960931,
+        "f1-score": 0.990924092409241,
+        "support": 1203.0
+      },
+      "1: promosi judi (pemetaan kerja)": {
+        "precision": 0.9964664310954063,
+        "recall": 0.9657534246575342,
+        "f1-score": 0.9808695652173913,
+        "support": 584.0
+      },
+      "accuracy": 0.9876888640179071,
+      "macro avg": {
+        "precision": 0.990043207357695,
+        "recall": 0.9820454571334221,
+        "f1-score": 0.9858968288133161,
+        "support": 1787.0
+      },
+      "weighted avg": {
+        "precision": 0.9878182630411626,
+        "recall": 0.9876888640179071,
+        "f1-score": 0.9876382256604775,
+        "support": 1787.0
+      }
+    },
+    "with_synthetic": {
+      "0: nonjudi (pemetaan kerja)": {
+        "precision": 0.9836065573770492,
+        "recall": 0.9975062344139651,
+        "f1-score": 0.9905076351630211,
+        "support": 1203.0
+      },
+      "1: promosi judi (pemetaan kerja)": {
+        "precision": 0.9947089947089947,
+        "recall": 0.9657534246575342,
+        "f1-score": 0.9800173761946134,
+        "support": 584.0
+      },
+      "accuracy": 0.987129266927812,
+      "macro avg": {
+        "precision": 0.9891577760430219,
+        "recall": 0.9816298295357497,
+        "f1-score": 0.9852625056788172,
+        "support": 1787.0
+      },
+      "weighted avg": {
+        "precision": 0.9872348860854185,
+        "recall": 0.987129266927812,
+        "f1-score": 0.9870793692214709,
+        "support": 1787.0
+      }
+    }
+  },
+  "confusion_matrices": {
+    "original_only": [
+      [
+        1201,
+        2
+      ],
+      [
+        20,
+        564
+      ]
+    ],
+    "with_synthetic": [
+      [
+        1200,
+        3
+      ],
+      [
+        20,
+        564
+      ]
+    ]
+  },
+  "versions": {
+    "python": "3.11.9",
+    "numpy": "1.26.4",
+    "pandas": "3.0.3",
+    "scipy": "1.17.1",
+    "sklearn": "1.4.2",
+    "matplotlib": "3.10.9",
+    "joblib": "1.5.3"
+  },
+  "source_sha256": {
+    "outputs\\cleaning\\komentar_cleaned.csv": "5748b86c1d1d72c9e29023b8311e692f0fbebe3edc9fe556df6a5b4c75b3feb3",
+    "outputs\\bayesian\\original_split_manifest.csv": "1512e44e643cfbf666895fadcba550fd17111a1caef9584825adcbd83a0b0781",
+    "outputs\\augmentation\\komentar_synthetic_only.csv": "4ac721c4a2aa5da53aae12ff0a177f5a9a384b5c387aa481839ed67cf3002c0c"
+  },
+  "feature_settings": {
+    "candidates": {
+      "word_1_2": {
+        "analyzer": "word",
+        "ngram_range": [
+          1,
+          2
+        ]
+      },
+      "char_wb_3_5": {
+        "analyzer": "char_wb",
+        "ngram_range": [
+          3,
+          5
+        ]
+      }
+    },
+    "tfidf": {
+      "min_df": 2,
+      "max_features": 40000,
+      "sublinear_tf": true,
+      "lowercase": false,
+      "norm": "l2",
+      "use_idf": true,
+      "smooth_idf": true
+    }
+  },
+  "classifier_settings": {
+    "C_values": [
+      0.1,
+      1.0,
+      10.0
+    ],
+    "penalty": "l2",
+    "loss": "squared_hinge",
+    "dual": "auto",
+    "tol": 0.0001,
+    "max_iter": 10000,
+    "class_weight": null,
+    "fit_intercept": true,
+    "intercept_scaling": 1,
+    "random_state": 42
+  },
+  "model_input": "komentar_processed; fungsi clean_comment tersedia dalam notebook",
+  "decision_score": "uncalibrated signed margin; not a probability",
+  "execution": {
+    "mode": "sequential_ipython",
+    "started_at": "2026-10-25T15:21:10.369860+00:00",
+    "selection_locked_at": "2026-10-25T15:21:14.068938+00:00",
+    "test_evaluated_at": "2026-10-25T15:21:15.412807+00:00",
+    "completed_at": "2026-10-25T15:21:18.222253+00:00"
+  },
+  "verification": {
+    "input_hashes_unchanged": true,
+    "selection_unchanged_after_test": true,
+    "all_candidates_converged": true,
+    "metrics_recomputed_from_counts": true,
+    "model_reload_predictions_and_margins_match": true
+  },
+  "final_model_details": {
+    "original_only": {
+      "feature_count": 30138,
+      "n_iter": 200
+    },
+    "with_synthetic": {
+      "feature_count": 30294,
+      "n_iter": 224
+    }
+  },
+  "limitations": [
+    "Definisi label dan proses anotasi sumber belum terverifikasi.",
+    "Split acak tingkat komentar bukan holdout video, kampanye, atau waktu.",
+    "Sintetis berbasis template bukan observasi YouTube independen.",
+    "Setiap konfigurasi akhir dilatih sekali; waktu bergantung perangkat dan lingkungan.",
+    "Versi library setiap metode dicatat terpisah; requirements.txt bukan lock hasil historis."
+  ]
+}

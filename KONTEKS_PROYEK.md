@@ -79,11 +79,11 @@ Representasi teks awal adalah TF-IDF, dengan kandidat fitur kata unigram/bigram 
 
 | Algoritma | Bentuk implementasi | Catatan eksperimen |
 | --- | --- | --- |
-| ANN | Jaringan saraf untuk klasifikasi, misalnya MLP | Arsitektur, aktivasi, optimizer, penghentian latihan, dan kebutuhan memori harus dicatat |
-| SVM | Classifier SVM, misalnya LinearSVC | Jenis SVM, kernel bila relevan, dan parameter seperti `C` harus dicatat |
+| ANN | MLPClassifier, satu lapisan tersembunyi | 32/64 unit, ReLU, Adam, early stopping; lihat notebook 04 |
+| SVM | LinearSVC | TF-IDF bersama, `C = 0.1, 1, 10`, L2 dan squared hinge; lihat notebook 05 |
 | Bayesian | Multinomial Naive Bayes | Implementasi saat ini memakai MultinomialNB dengan tuning smoothing `alpha` |
 
-ANN dan SVM belum memiliki hasil eksperimen yang tersimpan di proyek ini. Jangan menyebut arsitektur atau konfigurasi keduanya sebagai keputusan final sebelum anggota yang mengerjakannya menetapkan dan mendokumentasikan pengaturan.
+Implementasi dan keluaran ketiga metode sudah tersedia: Bayesian oleh Atharik di notebook 03, ANN oleh Bagas di notebook 04, dan SVM oleh Aidan di notebook 05. Setiap metode menyimpan konfigurasi terpilih, skor validation/test, prediksi per record, serta versi library dalam folder keluarannya sendiri.
 
 Perbandingan utama harus mempertahankan pembagian data, input, metrik, dan aturan pemilihan parameter. Bila representasi atau transformasi tambahan berbeda karena kebutuhan algoritma, jelaskan perbedaannya dalam metode. Catat juga anggaran tuning dan lingkungan eksekusi sebelum membandingkan waktu latihan.
 
@@ -100,7 +100,7 @@ Eksperimen Bayesian awal sudah tersedia:
 | Tanpa sintetis | 97,87% | 96,79% |
 | Dengan sintetis | 96,81% | 95,18% |
 
-Hasil tersebut berasal dari 1.787 komentar test asli. Konfigurasi terbaik per skenario menggunakan TF-IDF `char_wb` 3–5 gram dan `alpha=0.1`. Skenario tanpa sintetis telah dipilih berdasarkan validation sebelum evaluasi test. Hasil awal ini menunjukkan penurunan skor saat augmentasi untuk Naive Bayes; hasil ANN dan SVM masih perlu dikumpulkan sebelum menyimpulkan perbandingan ketiganya.
+Hasil tersebut berasal dari 1.787 komentar test asli. Konfigurasi terbaik per skenario menggunakan TF-IDF `char_wb` 3–5 gram dan `alpha=0.1`. Skenario tanpa sintetis telah dipilih berdasarkan validation sebelum evaluasi test. Hasil ANN tersedia di `outputs/ann/`, sedangkan SVM tersedia di `outputs/svm/`. Gabungkan hasil berdasarkan `source_row` dan skenario saat mengerjakan pembandingan; versi lingkungan berbeda dan tidak boleh dianggap identik.
 
 ## Arah paper
 
@@ -131,14 +131,17 @@ Pembahasan dan kesimpulan memiliki bobot 40% pada slide tugas. Karena itu, paper
 | `01_eda_cleaning.ipynb` | EDA, cleaning, audit, dan ekspor data bersih; sudah dijalankan lewat Python |
 | `02_dataset_generator.ipynb` | Generator sintetis, preview, verifikasi, dan ekspor; sudah dijalankan lewat Python |
 | `03_bayesian_naive_bayes.ipynb` | Training, tuning, evaluasi, dan penyimpanan Naive Bayes; sudah dijalankan lewat Python |
+| `04_ann.ipynb` | Training dan evaluasi MLP; hasil tersedia di `outputs/ann/` |
+| `05_svm.ipynb` | Workflow SVM mandiri dalam JudiScope; seluruh sel telah dijalankan lewat IPython berurutan |
 | `PANDUAN_DATASET_TIM.md` | Petunjuk teknis dataset dan protokol bersama untuk ANN/SVM |
 | `outputs/cleaning/` | Data bersih, review konflik, audit, dan ringkasan |
 | `outputs/augmentation/` | Tambahan sintetis, gabungan 10.000 record, dan ringkasan generator |
 | `outputs/bayesian/` | Model Bayesian, manifest split, metrik, prediksi, dan grafik |
-| Notebook ANN dan SVM | Hasil belum tersedia di workspace |
-| Paper dan presentasi | Belum tersedia di workspace |
+| `outputs/ann/` | Model ANN, metrik, prediksi, grafik, dan bobot proksi |
+| `outputs/svm/` | Metrik, prediksi, koefisien, grafik, dan model SVM lokal yang diabaikan Git |
+| Paper dan presentasi | Dikelola terpisah dari repository kode |
 
-Langkah berikutnya adalah menyelesaikan eksperimen ANN dan SVM dengan manifest yang sama, menggabungkan hasil dalam tabel perbandingan, membahas kesalahannya, lalu menulis paper berdasarkan bukti yang terkumpul.
+Keluaran ketiga metode sudah dapat digunakan untuk tabel perbandingan dan pembahasan kesalahan dalam paper atau presentasi. Notebook SVM membaca data dan manifest di repository ini tanpa membutuhkan repository SVM terpisah. Ringkasan setiap metode mencatat versi lingkungan dan batas hasilnya.
 
 ## Batas interpretasi
 

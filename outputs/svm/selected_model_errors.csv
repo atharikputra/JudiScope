@@ -1,0 +1,23 @@
+﻿source_row,komentar,komentar_processed,label,pred_original_only,decision_score_original_only,pred_with_synthetic,decision_score_with_synthetic,error_type
+5492,"Tidak pernah merasa bosan sedikit pun bermain 𝐷𝑂R𝐴77, karena selalu ada inovasi dan kejutan!","tidak pernah merasa bosan sedikit pun bermain dora77, karena selalu ada inovasi dan kejutan!",1,0,-0.1723829291670138,0,-0.08730249781934352,false_negative
+6726,Belik cilok depan alfa 5k 🗿👍🏿,belik cilok depan alfa 5k 🗿👍🏿,0,1,0.6304699731125529,1,0.7042787121673968,false_positive
+1838,wadidaw kren bgt yak depo 50 doan jd 2jt wwk💫💫,wadidaw kren bgt yak depo 50 doan jd 2jt wwk💫💫,1,0,-0.6958157132822158,0,-0.4582424697372106,false_negative
+6611,akari awetnya terbaik,akari awetnya terbaik,1,0,-0.5904550562995325,0,-0.6394090208063268,false_negative
+5793,buseettt bener,buseettt bener,1,0,-0.9867150516080382,0,-1.1025643631157351,false_negative
+1455,wajib coba sih coba mantep banget,wajib coba sih coba mantep banget,1,0,-0.14081922980076966,0,-0.0465329434621089,false_negative
+6945,iklan judul benar-benar bikin darah .,iklan judul benar-benar bikin darah .,1,0,-0.09767374676360374,0,-0.1657415448577224,false_negative
+5266,12.07 behh reza arap,12.07 behh reza arap,1,0,-0.7120959921261864,0,-0.804071892687407,false_negative
+4596,"Gak pernah gagal,𝐒𝐆𝐈𝟖𝟖🔥","gak pernah gagal,sgi88🔥",1,0,-0.08170904316768401,0,-0.174211886567184,false_negative
+4183,lengkap kalo chery bikin dealer pangkalan bun .,lengkap kalo chery bikin dealer pangkalan bun .,1,0,-0.7504594554840295,0,-0.9018884024696607,false_negative
+1941,gila BOOM kebagian 𝐵ØԜØ𝟟𝟟 spin 10rb,gila boom kebagian bøԝø77 spin 10rb,1,0,-0.37090784727114845,0,-0.11162597353014836,false_negative
+8356,sukses 𝑺𝑼𝑯𝑼𝟑𝟐𝟖 !,sukses suhu328 !,1,0,-0.08599395526792164,0,-0.13746163650901122,false_negative
+1967,"sepeda udah ga maen , golf","sepeda udah ga maen , golf",0,1,0.4760505453408195,1,0.5233786755223726,false_positive
+830,gilaa berubah dratis cok main,gilaa berubah dratis cok main,1,0,-0.05612126914224125,1,0.005013080204515852,false_negative
+3928,"Konten yang gw tunggu sehabis pulang kerja gas ramaikan bro biar mledak vidionya ,Salam ⭐𝐒𝐆𝐈𝟖𝟖!","konten yang gw tunggu sehabis pulang kerja gas ramaikan bro biar mledak vidionya ,salam ⭐sgi88!",1,0,-0.16176514900668226,0,-0.03411710145415392,false_negative
+5116,orang trump menang pilpres ya,orang trump menang pilpres ya,1,0,-0.6563907874522166,0,-0.6712559413348583,false_negative
+2463,"Gila sih, Gak bisa move on dari serunya 🔥⚡𝒥 𝟤 𝟢 𝟢 𝑀⚡?🔥.","gila sih, gak bisa move on dari serunya 🔥⚡j 2 0 0 m⚡?🔥.",1,0,-0.2942167799178519,0,-0.2914653500905322,false_negative
+9365,Saya tidak pernah kecewa dengan apa yang diberikan oleh PulΛᴜ𝟽𝟽𝟽.,saya tidak pernah kecewa dengan apa yang diberikan oleh pulλᴜ777.,1,0,-0.38081647229170623,0,-0.35028548483691,false_negative
+1086,salam kuku ireng,salam kuku ireng,1,0,-1.3126595821506037,0,-1.3274327219359465,false_negative
+8795,best coach sih,best coach sih,1,0,-0.12052372211082896,0,-0.1790308230044818,false_negative
+3452,semoga amal ibadahnya terima sisi tuhan,semoga amal ibadahnya terima sisi tuhan,1,0,-0.9597160587025918,0,-1.040030152523716,false_negative
+7009,26:36 ─═ 𝗕 𝗘 𝗥 𝗞 𝗔 𝗛 𝟵 𝟵 ═─ terus abang abangkuu,26:36 ─═ b e r k a h 9 9 ═─ terus abang abangkuu,1,0,-0.885618952257595,0,-0.9359803431836939,false_negative

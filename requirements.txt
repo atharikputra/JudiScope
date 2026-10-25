@@ -1,10 +1,18 @@
-# Versi library utama pada eksperimen Bayesian yang sudah dijalankan.
-numpy==2.4.4
-pandas==3.0.2
-scikit-learn==1.8.0
-matplotlib==3.10.8
-joblib==1.5.3
+# Python 3.11 atau lebih baru; dependensi bersama notebook 01–05.
+# Rentang ini untuk menjalankan workflow, bukan lock lingkungan semua hasil historis.
+# Versi aktual setiap eksperimen dicatat di outputs/<metode>/experiment_summary.json.
+# Model joblib perlu dimuat dengan versi scikit-learn yang sesuai saat disimpan.
+numpy>=1.26.4,<3
+pandas>=2.2,<4
+scipy>=1.10,<2
+scikit-learn>=1.4.2,<2
+matplotlib>=3.7,<4
+joblib>=1.3,<2
 
 # Antarmuka dan kernel untuk menjalankan notebook secara lokal.
 jupyterlab>=4,<5
 ipykernel>=6,<8
+ipython>=8,<10
+nbformat>=5.10,<6
+nbclient>=0.10,<1
+nbconvert>=7.16,<8
