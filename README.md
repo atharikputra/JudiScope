@@ -40,7 +40,8 @@ JudiScope/
 └── outputs/
     ├── cleaning/       # Data bersih, review, audit, dan ringkasan
     ├── augmentation/   # Data sintetis, gabungan, dan konfigurasi generator
-    └── bayesian/       # Model, manifest split, skor, prediksi, dan grafik
+    ├── bayesian/       # Model, manifest split, skor, prediksi, dan grafik
+    └── ann/            # Model ANN, skor, prediksi, bobot proksi, dan grafik
 ```
 
 Folder sumber menggunakan nama **`dataset`**, seluruhnya huruf kecil.
@@ -83,6 +84,7 @@ Buka notebook dari folder utama repository. Alternatifnya, buka dengan VS Code d
 | [01 — EDA dan cleaning](01_eda_cleaning.ipynb) | Struktur data, distribusi label, panjang komentar, duplikat, konflik, lalu cleaning | `outputs/cleaning/komentar_cleaned.csv` |
 | [02 — Generator dataset](02_dataset_generator.ipynb) | Konfigurasi target dan seed, generator sintetis, preview, verifikasi, ekspor | `outputs/augmentation/komentar_synthetic_only.csv` dan CSV gabungan |
 | [03 — Bayesian](03_bayesian_naive_bayes.ipynb) | Pipeline TF-IDF + MultinomialNB, tuning, perbandingan augmentasi, evaluasi, analisis kesalahan | `outputs/bayesian/` |
+| [04 — ANN](04_ann.ipynb) | Pipeline TF-IDF + MLPClassifier, tuning arsitektur, evaluasi perbandingan, analisis kesalahan | `outputs/ann/` |
 
 Jalankan sel dari atas ke bawah. File hasil sudah disertakan sehingga anggota tim dapat memakai manifest dan dataset tanpa training ulang Bayesian. Menjalankan ulang sel ekspor akan menimpa hasil dengan nama yang sama; file sumber mentah tidak ditimpa.
 

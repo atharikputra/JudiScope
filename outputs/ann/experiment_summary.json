@@ -1,0 +1,171 @@
+{
+  "algorithm": "Artificial Neural Network (MLPClassifier)",
+  "selection_metric": "validation positive-class F1, then macro-F1",
+  "seed": 42,
+  "split_fractions": {
+    "train": 0.6000000000000001,
+    "validation": 0.2,
+    "test": 0.2
+  },
+  "original_rows": 8934,
+  "synthetic_train_rows": 1066,
+  "split_counts": {
+    "train": 5360,
+    "validation": 1787,
+    "test": 1787
+  },
+  "selected_experiment_before_test": "original_only",
+  "best_validation_per_experiment": [
+    {
+      "experiment": "original_only",
+      "features": "char_wb_3_5",
+      "architecture": "hidden_32",
+      "hidden_layer_sizes": "(32,)",
+      "fit_rows": 5360,
+      "fit_seconds": 34.36367980000796,
+      "accuracy": 0.9792949076664801,
+      "precision_1": 0.9875222816399287,
+      "recall_1": 0.9486301369863014,
+      "f1_1": 0.9676855895196507,
+      "macro_f1": 0.9762264917544734
+    },
+    {
+      "experiment": "with_synthetic",
+      "features": "char_wb_3_5",
+      "architecture": "hidden_64",
+      "hidden_layer_sizes": "(64,)",
+      "fit_rows": 6426,
+      "fit_seconds": 55.69282210001256,
+      "accuracy": 0.9776161163961947,
+      "precision_1": 0.9788732394366197,
+      "recall_1": 0.952054794520548,
+      "f1_1": 0.9652777777777778,
+      "macro_f1": 0.974381250573447
+    }
+  ],
+  "test_metrics": [
+    {
+      "experiment": "original_only",
+      "accuracy": 0.9815332960268607,
+      "precision_1": 0.984182776801406,
+      "recall_1": 0.958904109589041,
+      "f1_1": 0.971379011274935,
+      "macro_f1": 0.9788741400860425,
+      "refit_seconds": 41.400565600022674,
+      "test_predict_seconds": 0.21206390002043918
+    },
+    {
+      "experiment": "with_synthetic",
+      "accuracy": 0.9826524902070509,
+      "precision_1": 0.9842381786339754,
+      "recall_1": 0.9623287671232876,
+      "f1_1": 0.9731601731601731,
+      "macro_f1": 0.9801724801311407,
+      "refit_seconds": 54.94455590000143,
+      "test_predict_seconds": 0.2306644000345841
+    },
+    {
+      "experiment": "majority_baseline",
+      "accuracy": 0.6731952993844432,
+      "precision_1": 0.0,
+      "recall_1": 0.0,
+      "f1_1": 0.0,
+      "macro_f1": 0.4023411371237458,
+      "refit_seconds": null,
+      "test_predict_seconds": null
+    }
+  ],
+  "classification_reports": {
+    "original_only": {
+      "0: nonjudi (asumsi)": {
+        "precision": 0.9802955665024631,
+        "recall": 0.9925187032418953,
+        "f1-score": 0.9863692688971499,
+        "support": 1203.0
+      },
+      "1: promosi judi (asumsi)": {
+        "precision": 0.984182776801406,
+        "recall": 0.958904109589041,
+        "f1-score": 0.971379011274935,
+        "support": 584.0
+      },
+      "accuracy": 0.9815332960268607,
+      "macro avg": {
+        "precision": 0.9822391716519345,
+        "recall": 0.9757114064154682,
+        "f1-score": 0.9788741400860425,
+        "support": 1787.0
+      },
+      "weighted avg": {
+        "precision": 0.9815659251004388,
+        "recall": 0.9815332960268607,
+        "f1-score": 0.9814703822427718,
+        "support": 1787.0
+      }
+    },
+    "with_synthetic": {
+      "0: nonjudi (asumsi)": {
+        "precision": 0.9819078947368421,
+        "recall": 0.9925187032418953,
+        "f1-score": 0.9871847871021083,
+        "support": 1203.0
+      },
+      "1: promosi judi (asumsi)": {
+        "precision": 0.9842381786339754,
+        "recall": 0.9623287671232876,
+        "f1-score": 0.9731601731601731,
+        "support": 584.0
+      },
+      "accuracy": 0.9826524902070509,
+      "macro avg": {
+        "precision": 0.9830730366854088,
+        "recall": 0.9774237351825914,
+        "f1-score": 0.9801724801311407,
+        "support": 1787.0
+      },
+      "weighted avg": {
+        "precision": 0.9826694424681941,
+        "recall": 0.9826524902070509,
+        "f1-score": 0.9826014773415654,
+        "support": 1787.0
+      }
+    }
+  },
+  "confusion_matrices": {
+    "original_only": [
+      [
+        1194,
+        9
+      ],
+      [
+        24,
+        560
+      ]
+    ],
+    "with_synthetic": [
+      [
+        1194,
+        9
+      ],
+      [
+        22,
+        562
+      ]
+    ]
+  },
+  "versions": {
+    "python": "3.15.0rc2",
+    "sklearn": "1.9.1",
+    "pandas": "3.0.6",
+    "numpy": "2.5.4",
+    "joblib": "1.6.0"
+  },
+  "model_input": "komentar_processed; preprocessing is provided in notebook, not embedded in joblib",
+  "limitations": [
+    "label meaning and annotation process unconfirmed",
+    "random text split, not video/campaign holdout",
+    "near-duplicate templates may span splits",
+    "synthetic template shortcuts",
+    "test has not been used to select parameters; avoid iterative tuning against test"
+  ]
+}
